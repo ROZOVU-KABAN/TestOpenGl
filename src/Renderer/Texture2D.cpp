@@ -8,8 +8,10 @@ Renderer::Texture2D::Texture2D(const GLuint width, const GLuint height, const un
 	{
 	case 4:
 		m_mode = GL_RGBA;
+		break;
 	case 3:
 		m_mode = GL_RGB;
+		break;
 	default:
 		m_mode = GL_RGBA;
 		break;
@@ -17,6 +19,7 @@ Renderer::Texture2D::Texture2D(const GLuint width, const GLuint height, const un
 
 
 	glGenTextures(1, &m_ID);
+	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, m_ID);
 	glTexImage2D(GL_TEXTURE_2D, 0, m_mode, m_width, m_height, NULL, GL_RGB, GL_UNSIGNED_BYTE, data);
 
