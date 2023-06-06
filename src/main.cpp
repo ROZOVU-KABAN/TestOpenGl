@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 #include"Renderer/ShaderProgram.h"
 #include "Resources/ResourcesManager.h"
-
+#include <glm/vec2.hpp>
 
 GLfloat point[] = {
     0.0f,0.5f,0.0f,
@@ -18,14 +18,13 @@ GLfloat colors[] ={
 };
 
 
-int windowSizeX=640;
-int windowSizeY=480;
+glm::ivec2 g_windowSize(640, 480);
 
 void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
 {
-    windowSizeX = width;
-    windowSizeY = height;
-    glViewport(0, 0, windowSizeX, windowSizeY);
+    g_windowSize.x = width;
+    g_windowSize.y = height;
+    glViewport(0, 0, g_windowSize.x, g_windowSize.y);
 }
 
 
@@ -47,7 +46,7 @@ int main(int argc, char** argv)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
     glfwWindowHint(GLFW_OPENGL_ANY_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(windowSizeX, windowSizeY, "Let the BAttle Begin", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(g_windowSize.x, g_windowSize.y, "Let the BAttle Begin", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
