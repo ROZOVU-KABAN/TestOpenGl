@@ -45,8 +45,6 @@ namespace Renderer {
 		glDeleteShader(fragmentShaderID);
 	}
 
-	
-
 	ShaderProgram& ShaderProgram::operator=(ShaderProgram&& shaderProgram) noexcept
 	{
 		glDeleteProgram(m_ID);
