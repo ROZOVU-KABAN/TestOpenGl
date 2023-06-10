@@ -149,10 +149,10 @@ int main(int argc, char** argv)
             if (f2 == 600) f2 = 0;
           
             glm::mat4 modelMatrix_1 = glm::mat4(1.f);
-            modelMatrix_1 = glm::translate(modelMatrix_1, glm::vec3(f2, 50.f, 0.f));
+            modelMatrix_1 = glm::translate(modelMatrix_1, glm::vec3(f2, f1, 0.f));
 
             glm::mat4 modelMatrix_2 = glm::mat4(1.f);
-            modelMatrix_2 = glm::translate(modelMatrix_2, glm::vec3(f1, 200.f, 0.f));
+            modelMatrix_2 = glm::translate(modelMatrix_2, glm::vec3(f1, f2, 0.f));
 
             glClear(GL_COLOR_BUFFER_BIT);
 
