@@ -84,6 +84,12 @@ namespace Renderer {
 
 	}
 
+	void ShaderProgram::SetMatrix4(const std::string& name, const glm::mat4& matrix)
+	{
+		glUniformMatrix4fv(glGetUniformLocation(m_ID, name.c_str()), 1, GL_FALSE, glm::value_ptr(matrix));
+
+	}
+
 	bool ShaderProgram::createShader(const std::string& source, const GLenum shaderType, GLuint& shaderID)
 	{
 		shaderID = glCreateShader(shaderType);
