@@ -10,6 +10,8 @@ add_executable(${PROJECT_NAME}
  src/main.cpp
  src/Renderer/ShaderProgram.cpp
  src/Renderer/ShaderProgram.h
+ src/Renderer/Sprite.cpp
+ src/Renderer/Sprite.h
  src/Resources/ResourcesManager.cpp
  src/Resources/ResourcesManager.h
  src/Resources/stb_image.h
