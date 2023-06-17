@@ -1,4 +1,10 @@
 #include "Texture2D.h"
+#include <glm/vec2.hpp>
+#include <map>
+#include <string>
+#include <glad/glad.h>
+
+
 
 Renderer::Texture2D::Texture2D(const GLuint width, const GLuint height, const unsigned char* data, const unsigned int channels, const GLenum filter, const GLenum wrapMode) :
 	m_width(width), m_height(height)
@@ -58,6 +64,20 @@ Renderer::Texture2D& Renderer::Texture2D::operator=(Texture2D&& texture2d)
 
 	return *this;
 
+}
+
+void Renderer::Texture2D::addSubTexture(const std::string& name, const glm::vec2& leftBottomUV, const glm::vec2& rightTopUV)
+{
+	m_subTextures.emplace(std::move(name), SubTexture2D(leftBottomUV, rightTopUV));
+}
+
+const Renderer::Texture2D::SubTexture2D& Renderer::Texture2D::getSubTexture(const std::string& name) const
+{
+	auto it = m_subTextures.find(name);
+	if (it != m_subTextures.end()) return it->second;
+
+	const static SubTexture2D defaultSubTexture;
+	return defaultSubTexture;
 }
 
 void Renderer::Texture2D::bind() const

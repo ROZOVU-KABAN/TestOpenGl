@@ -104,7 +104,12 @@ int main(int argc, char** argv)
         }
 
         auto tex = resourcesManager.loadTexture("DefaultTexture", "res/textures/map_16x16.png");
-        auto pSprite = resourcesManager.loadSprite("NewSprite", "DefaultTexture", "SpriteShader", 100, 100);
+
+        std::vector<std::string> subTexturesNames = { "block","topBlock","bottomBlock","leftBlock","rightBlock","topLeftBlock","topRightBlock","BottomLeftBlock","BottomRightBlock","beton"};
+
+        auto pTextureAtlas = resourcesManager.loadTextureAtlas("DefaultTextureAtlas", "res/textures/map_16x16.png", std::move(subTexturesNames), 50, 50);
+
+        auto pSprite = resourcesManager.loadSprite("NewSprite", "DefaultTextureAtlas", "SpriteShader", 100, 100,"topLeftBlock");
         pSprite->setPosition(glm::vec2(300, 100));
 
 
@@ -112,7 +117,7 @@ int main(int argc, char** argv)
         glGenBuffers(1, &points_vbo);
         glBindBuffer(GL_ARRAY_BUFFER, points_vbo);
         glBufferData(GL_ARRAY_BUFFER, sizeof(point), point, GL_STATIC_DRAW);
-
+         
 
         GLuint colors_vbo = 0;
         glGenBuffers(1, &colors_vbo);

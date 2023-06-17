@@ -2,6 +2,8 @@
 #include <string>
 #include <memory>
 #include<map>
+#include<vector>
+
 
 namespace Renderer
 {
@@ -28,11 +30,19 @@ public:
 	std::shared_ptr<Renderer::Texture2D> loadTexture(const std::string& textureName, const std::string& texturePath);
 	std::shared_ptr<Renderer::Texture2D> getTextures(const std::string& textureName);
 
+	std::shared_ptr<Renderer::Texture2D> loadTextureAtlas(const std::string textureName,
+		                                                  const std::string texturePath,
+													      std::vector<std::string> subTextures,
+														  const unsigned int subTexturewidth,
+														  const unsigned subTextureheight);
+
+
 	std::shared_ptr<Renderer::Sprite> loadSprite(const std::string& spriteName,
 												 const std::string& textureName,
 												 const std::string& shaderName,
 												 const unsigned int spriteWidth,
-												 const unsigned int spriteHeight);
+												 const unsigned int spriteHeight,
+												 const std::string& subTextureName = "default");
 	std::shared_ptr<Renderer::Sprite> getSprite(const std::string& spriteName);
 
 private:
