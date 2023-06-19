@@ -1,4 +1,5 @@
 #include <iostream>
+#include<chrono>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -7,6 +8,7 @@
 #include "Resources/ResourcesManager.h"
 #include "Renderer/Texture2D.h"
 #include "Renderer/Sprite.h"
+#include "Renderer/AnimatedSprite.h"
 
 #include <glm/vec2.hpp>
 #include <glm/mat4x4.hpp>

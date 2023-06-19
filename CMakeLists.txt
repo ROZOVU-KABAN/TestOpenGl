@@ -17,6 +17,10 @@ add_executable(${PROJECT_NAME}
  src/Resources/stb_image.h
  src/Renderer/Texture2D.cpp
  src/Renderer/Texture2D.h	
+src/Renderer/AnimatedSprite.h
+src/REnderer/AnimatedSprite.cpp
+src/Game/Game.h
+src/Game/Game.cpp
 )
 
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)

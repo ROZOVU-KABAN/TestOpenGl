@@ -28,13 +28,13 @@ namespace Renderer
 
 		~Sprite();
 		
-		void renderer();
+		virtual void renderer();
+
 		void setPosition(const glm::vec2& position);
 		void setSize(const glm::vec2& size);
 		void setRotation(const float rotation);
 
-	private:
-
+	protected:
 		std::shared_ptr<Texture2D> m_pTexture2D;
 		std::shared_ptr<ShaderProgram> m_pShaderProgram;
 		glm::vec2 m_position;
