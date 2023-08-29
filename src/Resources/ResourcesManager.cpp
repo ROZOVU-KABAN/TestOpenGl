@@ -161,7 +161,7 @@ std::shared_ptr<Renderer::AnimatedSprite> ResourcesManager::loadAnimatedSprite(c
 	const std::string& shaderName,
 	const unsigned int spriteWidth,
 	const unsigned int spriteHeight,
-	const std::string& subTextureName = "default")
+	const std::string& subTextureName)
 {
 	auto pTexture = getTextures(textureName);
 	if (!pTexture)
